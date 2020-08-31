@@ -1,0 +1,1 @@
+lua tests/wrong_cthun_planner_tests.lua
