@@ -1,0 +1,7 @@
+## Interface: 11305
+Title:|cffff306fWrongCthunPlanner|r
+## Author: Bulo
+## Version: 1.0
+## Notes: position planner
+
+WrongCthunPlanner.lua
