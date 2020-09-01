@@ -27,6 +27,10 @@ Install via Twitch-Client or Download from [Curseforge](https://www.curseforge.c
 
 `/wcp show` Show the planner
 
+`/wcp hide` Hide the planner
+
+`/wcp reset` Reset position and scale of the planner
+
 `/wcp refresh` Refresh positions
 
 * For Raid Leads and Assists

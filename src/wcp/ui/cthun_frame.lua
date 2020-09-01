@@ -46,6 +46,17 @@ function WCP.UI.CthunFrame.create()
   return frame
 end
 
+-- Reset Position and scale
+function WCP.UI.CthunFrame.reset()
+  local frame = WCP.frame
+
+  frame:SetHeight(WCP.UI.CthunFrame.Default_Height)
+  frame:SetWidth(WCP.UI.CthunFrame.Default_Width)
+  frame:SetScale(1)
+  frame:ClearAllPoints();
+  frame:SetPoint("CENTER", 0, 0)
+end
+
 -- Resize given frame
 function WCP.UI.CthunFrame.Resize(frame, resize_frame)
   local scale = frame:GetWidth() / WCP.UI.CthunFrame.Default_Width

@@ -7,6 +7,10 @@ function WCP.LIB.SlashCommands.handle(cmd)
     private.help()
   elseif (cmd == "show" or cmd == "" or cmd == nil) then
     private.show()
+  elseif (cmd == "hide") then
+    private.hide()
+  elseif (cmd == "reset") then
+    private.reset()
   elseif (cmd == "refresh") then
     private.refresh()
   elseif (cmd == "share") then
@@ -29,6 +33,8 @@ function private.help()
   WCP.info("Commands:")
   add_help_message("help", "Show this help menu")
   add_help_message("show", "Show the planner")
+  add_help_message("hide", "Hide the planner")
+  add_help_message("reset", "Reset position and scale of the planner")
   add_help_message("refresh", "Refresh positions (e.g.: Someone died / went offline)")
 
   if(IsInGroup() and (UnitIsGroupLeader("player") or UnitIsGroupAssistant("player"))) then
@@ -45,6 +51,16 @@ end
 function private.show()
   WCP.frame:Show()
   WCP.grid:refresh()
+end
+
+-- /wcp hide
+function private.hide()
+  WCP.frame:Hide()
+end
+
+-- /wcp reset
+function private.reset()
+  WCP.UI.CthunFrame.reset()
 end
 
 -- /wcp refresh
