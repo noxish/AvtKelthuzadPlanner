@@ -27,17 +27,17 @@ function private.help()
   end
 
   WCP.info("Commands:")
-  add_help_message("help", "show this help menu")
-  add_help_message("show", "Show the Frame")
-  add_help_message("refresh", "Refresh (e.g.: Someone died / went offline)")
+  add_help_message("help", "Show this help menu")
+  add_help_message("show", "Show the planner")
+  add_help_message("refresh", "Refresh positions (e.g.: Someone died / went offline)")
 
   if(IsInGroup() and (UnitIsGroupLeader("player") or UnitIsGroupAssistant("player"))) then
-    add_help_message("marks", "marks the main melee for each group")
+    add_help_message("marks", "Set RaidTargetMarkers for Melees")
   end
 
   if(IsInGroup() and UnitIsGroupLeader("player")) then
-    add_help_message("share", "displays the planner to your raid")
-    add_help_message("check", "check if all raiders have the addon installed")
+    add_help_message("share", "Displays the planner to your raid")
+    add_help_message("check", "Check if all raiders have the addon installed")
   end
 end
 
