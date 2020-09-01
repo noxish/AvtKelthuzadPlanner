@@ -23,27 +23,21 @@ Install via Twitch-Client or Download from [Curseforge](https://www.curseforge.c
 
 ## Usage
 
-```shell
-# Show ingame help
-/wcp help
+`/wcp help` Show ingame help
 
-# Show the planner
-/wcp show
+`/wcp show` Show the planner
 
-# Refresh positions
-/wcp refresh
+`/wcp refresh` Refresh positions
 
-## For Raid Leads and Assists
-# Set RaidTargetMarkers for Melees
-/wcp marks
+* For Raid Leads and Assists
 
-## For Raid Leads
-# Displays the planner to your raid
-/wcp share
+`/wcp marks` Set RaidTargetMarkers for Melees
 
-# Check if all raiders have the addon installed
-/wcp check
-```
+* For Raid Leads
+
+`/wcp share` Displays the planner to your raid
+
+`/wcp check` Check if all raiders have the addon installed
 
 ### Macro (For RL/Assist)
 
