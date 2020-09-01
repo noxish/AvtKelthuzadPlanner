@@ -1,7 +1,28 @@
 ## Interface: 11305
-Title:|cffff306fWrongCthunPlanner|r
-## Author: Bulo
-## Version: 1.0
-## Notes: position planner
+## Title: WrongCthunPlanner
+## Author: Patrick Helm
+## Version: 0.2.0.pre
+## Notes: C'Thun Positioning Planner
 
+# Wrapper
+wcp.lua
+
+# Lib
+wcp/lib/check_addon.lua
+wcp/lib/events.lua
+wcp/lib/grid.lua
+wcp/lib/group.lua
+wcp/lib/member.lua
+wcp/lib/slash_commands.lua
+
+# UI Elements
+wcp/ui/cthun_frame.lua
+wcp/ui/dot.lua
+wcp/ui/header.lua
+wcp/ui/hide_button.lua
+wcp/ui/opacity_slider.lua
+wcp/ui/resize_area.lua
+
+
+# Init
 WrongCthunPlanner.lua
