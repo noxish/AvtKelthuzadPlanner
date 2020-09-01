@@ -35,5 +35,5 @@ function WCP.LIB.Member:is_range()
 end
 
 function WCP.LIB.Member:is_heal()
-  return (self.class == "PRIEST" or self.class == "PALADIN" or self.class == "DRUID")
+  return (self.class == "PRIEST" or self.class == "PALADIN" or self.class == "DRUID" or self.class == "SHAMAN")
 end
