@@ -46,6 +46,12 @@ function WCP.UI.CthunFrame.create()
   return frame
 end
 
+function WCP.UI.CthunFrame.show()
+  WCP.frame:Show()
+  WCP.grid:refresh()
+  WCP.UI.CthunFrame.Resize()
+end
+
 -- Reset Position and scale
 function WCP.UI.CthunFrame.reset()
   local frame = WCP.frame
@@ -58,13 +64,13 @@ function WCP.UI.CthunFrame.reset()
 end
 
 -- Resize given frame
-function WCP.UI.CthunFrame.Resize(frame, resize_frame)
-  local scale = frame:GetWidth() / WCP.UI.CthunFrame.Default_Width
-  local childrens = {frame:GetChildren()}
+function WCP.UI.CthunFrame.Resize()
+  local scale = WCP.frame:GetWidth() / WCP.UI.CthunFrame.Default_Width
+  local childrens = {WCP.frame:GetChildren()}
   for _, child in ipairs(childrens) do
-    if child ~= resize_frame then
+    if child ~= WCP.frame.resize_area then
       child:SetScale(scale)
     end
   end
-  frame:SetHeight(WCP.UI.CthunFrame.Default_Height * scale)
+  WCP.frame:SetHeight(WCP.UI.CthunFrame.Default_Height * scale)
 end

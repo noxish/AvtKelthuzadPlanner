@@ -2,15 +2,15 @@ WCP.UI.ResizeArea = {}
 
 -- Attach Resize Area
 function WCP.UI.ResizeArea.attach_to(frame)
-  resizeframe = CreateFrame("Frame", "CthunResize", frame)
-  resizeframe:SetPoint("BottomRight", frame, "BottomRight", -8, 7)
-  resizeframe:SetWidth(16)
-  resizeframe:SetHeight(16)
-  resizeframe:SetFrameLevel(frame:GetFrameLevel() + 7)
-  resizeframe:EnableMouse(true)
+  resize_frame = CreateFrame("Frame", "CthunResize", frame)
+  resize_frame:SetPoint("BottomRight", frame, "BottomRight", -8, 7)
+  resize_frame:SetWidth(16)
+  resize_frame:SetHeight(16)
+  resize_frame:SetFrameLevel(frame:GetFrameLevel() + 7)
+  resize_frame:EnableMouse(true)
 
-  local resizetexture = resizeframe:CreateTexture(nil, "Artwork")
-  resizetexture:SetPoint("TopLeft", resizeframe, "TopLeft", 0, 0)
+  local resizetexture = resize_frame:CreateTexture(nil, "Artwork")
+  resizetexture:SetPoint("TopLeft", resize_frame, "TopLeft", 0, 0)
   resizetexture:SetWidth(16)
   resizetexture:SetHeight(16)
   resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
@@ -19,15 +19,15 @@ function WCP.UI.ResizeArea.attach_to(frame)
   frame:SetMinResize(WCP.UI.CthunFrame.Default_Width / 2.0, WCP.UI.CthunFrame.Default_Height / 2.0)
   frame:SetResizable(true)
 
-  resizeframe:SetScript("OnEnter", function(self)
+  resize_frame:SetScript("OnEnter", function(self)
     resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Highlight")
   end)
 
-  resizeframe:SetScript("OnLeave", function(self)
+  resize_frame:SetScript("OnLeave", function(self)
     resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
   end)
 
-  resizeframe:SetScript("OnMouseDown", function(self, button)
+  resize_frame:SetScript("OnMouseDown", function(self, button)
     if button == "RightButton" then
       frame:SetWidth(WCP.UI.CthunFrame.Default_Width)
       frame:SetHeight(WCP.UI.CthunFrame.Default_Height)
@@ -37,7 +37,7 @@ function WCP.UI.ResizeArea.attach_to(frame)
     end
   end)
 
-  resizeframe:SetScript("OnMouseUp", function(self, button)
+  resize_frame:SetScript("OnMouseUp", function(self, button)
     local x, y = GetCursorPosition()
     local fx = self:GetLeft() * self:GetEffectiveScale()
     local fy = self:GetBottom() * self:GetEffectiveScale()
@@ -55,6 +55,8 @@ function WCP.UI.ResizeArea.attach_to(frame)
   scrollframe:SetPoint("Topleft", frame, "Topleft", 0, 0)
 
   frame:SetScript("OnSizeChanged", function(self)
-    WCP.UI.CthunFrame.Resize(frame, resizeframe)
+    WCP.UI.CthunFrame.Resize()
   end)
+
+  frame.resize_area = resize_frame
 end

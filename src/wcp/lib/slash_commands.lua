@@ -49,8 +49,7 @@ end
 
 -- /wcp show
 function private.show()
-  WCP.frame:Show()
-  WCP.grid:refresh()
+  WCP.UI.CthunFrame.show()
 end
 
 -- /wcp hide
@@ -72,7 +71,8 @@ end
 function private.share()
   if IsInGroup() then
     if UnitIsGroupLeader("player") then
-      WCP.frame:Show()
+      WCP.UI.CthunFrame.show()
+
       WCP.grid:refresh()
       WCP.addon_raid_message("SHARE")
     else

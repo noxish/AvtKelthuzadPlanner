@@ -28,8 +28,7 @@ end
 
 function private.handle_share_event()
   WCP.info("Accepting share..")
-  WCP.frame:Show()
-  WCP.grid:refresh()
+  WCP.UI.CthunFrame.show()
 end
 
 function private.handle_check_event(sender)
