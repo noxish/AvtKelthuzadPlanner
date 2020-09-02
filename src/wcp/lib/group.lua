@@ -25,44 +25,32 @@ function WCP.LIB.Group:add_member(member)
   end
 end
 
+-- @private
+
+-- 1st row > 2nd row > 3rd row
 function WCP.LIB.Group:handle_melee(member)
-  if(self.members[1] == nil) then
-    self.members[1] = member
-  elseif(self.members[5] == nil) then
-    self.members[5] = member
-  elseif(self.members[2] == nil) then
-    self.members[2] = member
-  elseif(self.members[3] == nil) then
-    self.members[3] = member
-  else
-    self.members[4] = member
-  end
+  self:set_member(member, { 1, 5, 2, 3, 4 })
 end
 
+-- 3rd row > 2nd row > 1st row
 function WCP.LIB.Group:handle_range(member)
-  if(self.members[3] == nil) then
-    self.members[3] = member
-  elseif(self.members[4] == nil) then
-    self.members[4] = member
-  elseif(self.members[5] == nil) then
-    self.members[5] = member
-  elseif(self.members[2] == nil) then
-    self.members[2] = member
-  else
-    self.members[1] = member
-  end
+  self:set_member(member, { 3, 4, 5, 2, 1 })
 end
 
+-- 2nd row > 3rd row > 1st row
 function WCP.LIB.Group:handle_heal(member)
-  if(self.members[2] == nil) then
-    self.members[2] = member
-  elseif(self.members[5] == nil) then
-    self.members[5] = member
-  elseif(self.members[3] == nil) then
-    self.members[3] = member
-  elseif(self.members[4] == nil) then
-    self.members[4] = member
-  else
-    self.members[1] = member
+  self:set_member(member, { 2, 5, 3, 4, 1 })
+end
+
+-- @note 1st row: position == 1
+--       2nd row: position == 5 or position == 3
+--       3rd row: position == 2 or position == 4
+function WCP.LIB.Group:set_member(member, order)
+  for i = 1, 5 do
+    local position = order[i]
+    if(self.members[position] == nil) then
+      self.members[position] = member
+      return true
+    end
   end
 end
