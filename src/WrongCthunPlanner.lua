@@ -1,4 +1,4 @@
-local successfulRequest = C_ChatInfo.RegisterAddonMessagePrefix("WrongCthunPlanner")
+local successfulRequest = C_ChatInfo.RegisterAddonMessagePrefix(WCP.messagePrefix)
 
 if not successfulRequest then
   WCP.alert("Error creating addon channel.")

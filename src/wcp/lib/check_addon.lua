@@ -2,7 +2,7 @@ WCP.LIB.CheckAddon = {}
 WCP.LIB.CheckAddon.current_roster = nil
 
 WCP.LIB.CheckAddon.Roster = {}
-WCP.LIB.CheckAddon.Roster.__index = WCP.LIB.CheckAddon.ROSTER
+WCP.LIB.CheckAddon.Roster.__index = WCP.LIB.CheckAddon.Roster
 
 local private = {}
 
@@ -15,9 +15,9 @@ function WCP.LIB.CheckAddon.run()
 end
 
 function WCP.LIB.CheckAddon.installed(name)
-  if WCP.Lib.CheckAddon.current_roster == nil then return end
+  if WCP.LIB.CheckAddon.current_roster == nil then return false end
 
-  WCP.Lib.CheckAddon.current_roster.remove_member(name)
+  WCP.LIB.CheckAddon.current_roster:remove_member(name)
 end
 
 function WCP.LIB.CheckAddon.Roster:create()

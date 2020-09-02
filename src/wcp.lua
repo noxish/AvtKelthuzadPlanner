@@ -2,6 +2,7 @@ WCP = {}
 WCP.LIB = {}
 WCP.UI = {}
 
+WCP.messagePrefix = "WCP"
 WCP.frame = {}
 WCP.player_name, _ = UnitName("player")
 
@@ -14,9 +15,9 @@ function WCP.alert(message)
 end
 
 function WCP.addon_raid_message(message)
-  C_ChatInfo.SendAddonMessage("WrongCthunPlanner", "CHECKRES: " .. WCP.player_name, "WHISPER", sender)
+  C_ChatInfo.SendAddonMessage(WCP.messagePrefix, message, "RAID")
 end
 
 function WCP.addon_whisper_message(message, receiver)
-  C_ChatInfo.SendAddonMessage("WrongCthunPlanner", message, "WHISPER", receiver)
+  C_ChatInfo.SendAddonMessage(WCP.messagePrefix, message, "WHISPER", receiver)
 end
