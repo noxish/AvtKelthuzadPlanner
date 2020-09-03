@@ -60,14 +60,14 @@ function WCP.UI.Dot.create_or_update(number, ...)
 end
 
 function WCP.UI.Dot.reset_all()
-  for i, dot in pairs(WCP.UI.Dot.all) do
+  for _, dot in pairs(WCP.UI.Dot.all) do
     dot:update(dot.number, nil, nil)
     dot:refresh()
   end
 end
 
 -- Initializer
-function WCP.UI.Dot:create(...)
+function WCP.UI.Dot.create(...)
   local self = {}
 
   setmetatable(self, WCP.UI.Dot)

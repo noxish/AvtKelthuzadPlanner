@@ -19,15 +19,15 @@ function WCP.UI.ResizeArea.attach_to(frame)
   frame:SetMinResize(WCP.UI.CthunFrame.Default_Width / 2.0, WCP.UI.CthunFrame.Default_Height / 2.0)
   frame:SetResizable(true)
 
-  resize_frame:SetScript("OnEnter", function(self)
+  resize_frame:SetScript("OnEnter", function()
     resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Highlight")
   end)
 
-  resize_frame:SetScript("OnLeave", function(self)
+  resize_frame:SetScript("OnLeave", function()
     resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
   end)
 
-  resize_frame:SetScript("OnMouseDown", function(self, button)
+  resize_frame:SetScript("OnMouseDown", function(button)
     if button == "RightButton" then
       frame:SetWidth(WCP.UI.CthunFrame.Default_Width)
       frame:SetHeight(WCP.UI.CthunFrame.Default_Height)
@@ -37,7 +37,7 @@ function WCP.UI.ResizeArea.attach_to(frame)
     end
   end)
 
-  resize_frame:SetScript("OnMouseUp", function(self, button)
+  resize_frame:SetScript("OnMouseUp", function(self)
     local x, y = GetCursorPosition()
     local fx = self:GetLeft() * self:GetEffectiveScale()
     local fy = self:GetBottom() * self:GetEffectiveScale()
@@ -54,7 +54,7 @@ function WCP.UI.ResizeArea.attach_to(frame)
   scrollframe:SetHeight(WCP.UI.CthunFrame.Default_Height)
   scrollframe:SetPoint("Topleft", frame, "Topleft", 0, 0)
 
-  frame:SetScript("OnSizeChanged", function(self)
+  frame:SetScript("OnSizeChanged", function()
     WCP.UI.CthunFrame.Resize()
   end)
 

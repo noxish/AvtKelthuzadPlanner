@@ -12,7 +12,7 @@ function WCP.UI.OpacitySlider.attach_to(frame)
   slider["High"]:SetText("100%")
   slider["Text"]:SetText("Opacity")
 
-  slider:SetScript("OnValueChanged", function(self)
+  slider:SetScript("OnValueChanged", function()
     local value = slider:GetValue()
     frame:SetAlpha(value)
   end)

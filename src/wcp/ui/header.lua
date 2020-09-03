@@ -9,12 +9,12 @@ function WCP.UI.Header.attach_to(frame)
     bgFile = "Interface\\DialogFrame\\UI-DialogBox-Header"
   })
 
-  header:SetScript("OnMouseDown", function(self, button)
+  header:SetScript("OnMouseDown", function()
     frame:StartMoving("TOPLEFT")
     frame:SetUserPlaced(true)
   end)
 
-  header:SetScript("OnMouseUp", function(self, button)
+  header:SetScript("OnMouseUp", function()
     frame:StopMovingOrSizing()
   end)
 

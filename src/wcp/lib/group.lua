@@ -2,7 +2,7 @@ WCP.LIB.Group = {}
 WCP.LIB.Group.__index = WCP.LIB.Group
 
 -- Initializer
-function WCP.LIB.Group:create(number)
+function WCP.LIB.Group.create(number)
   local self = {}
 
   setmetatable(self, WCP.LIB.Group)

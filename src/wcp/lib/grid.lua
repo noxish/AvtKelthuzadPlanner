@@ -2,7 +2,7 @@ WCP.LIB.Grid = {}
 WCP.LIB.Grid.__index = WCP.LIB.Grid
 
 -- Initializer
-function WCP.LIB.Grid:create()
+function WCP.LIB.Grid.create()
   local self = {}
 
   setmetatable(self, WCP.LIB.Grid)

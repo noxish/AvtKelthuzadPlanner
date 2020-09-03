@@ -4,20 +4,17 @@ local private = {}
 
 -- Handle WoW Events
 function WCP.LIB.Events.handle(...)
-  local unknown, event_type = ...
+  local _, event_type = ...
 
   if(event_type == "CHAT_MSG_ADDON") then
     private.handle_chat_message_addon_event(...)
   elseif(event_type == "GROUP_ROSTER_UPDATE") then
     WCP.grid:refresh()
-  else
-    -- print(unknown)
-    -- print(event_type)
   end
 end
 
 function private.handle_chat_message_addon_event(...)
-  local _, event_type, prefix, message, dist, sender = ...
+  local _, _, prefix, message, _, sender = ...
 
   if prefix ~= WCP.messagePrefix then return false end
 

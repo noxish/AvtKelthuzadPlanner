@@ -2,18 +2,21 @@ WCP.LIB.Member = {}
 WCP.LIB.Member.__index = WCP.LIB.Member
 
 -- Initializer
-function WCP.LIB.Member:create(raid_index)
+function WCP.LIB.Member.create(raid_index)
   local self = {}
 
   setmetatable(self, WCP.LIB.Member)
 
-  local name, rank, subgroup, level, _, class, zone, online, isDead, role, isML = GetRaidRosterInfo(raid_index)
+  local name, _, subgroup, _, _, class, _, online, isDead, role, _ = GetRaidRosterInfo(raid_index)
 
   self.class = class
   self.isDead = isDead
   self.name = name
   self.online = online
+
+  -- @todo Check for I18n issues
   self.role = role
+
   self.subgroup = subgroup
 
   return self

@@ -20,7 +20,7 @@ function WCP.LIB.CheckAddon.installed(name)
   WCP.LIB.CheckAddon.current_roster:remove_member(name)
 end
 
-function WCP.LIB.CheckAddon.Roster:create()
+function WCP.LIB.CheckAddon.Roster.create()
   local self = {}
 
   setmetatable(self, WCP.LIB.CheckAddon.Roster)
