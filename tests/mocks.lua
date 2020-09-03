@@ -19,7 +19,11 @@ function CreateFrame(type)
   function texture.SetTexture() return false end
   function texture.SetText() return false end
 
-  frame = {}
+  frame = {
+    Low = texture,
+    High = texture,
+    Text = texture,
+  }
   function frame.CreateFontString() return texture end
   function frame.CreateTexture() return texture end
   function frame.EnableMouse() return true end
