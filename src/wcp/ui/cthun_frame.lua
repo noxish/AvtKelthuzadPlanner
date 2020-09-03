@@ -18,7 +18,7 @@ local backdrop = {
 
 -- Create Main Frame
 function WCP.UI.CthunFrame.create()
-  local frame = CreateFrame("Frame", "Cthun_room", UIParent)
+  local frame = CreateFrame("Frame", nil, UIParent)
 
   frame:EnableMouse(true)
   frame:SetMovable(true)

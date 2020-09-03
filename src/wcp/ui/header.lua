@@ -1,7 +1,7 @@
 WCP.UI.Header = {}
 
 function WCP.UI.Header.attach_to(frame)
-  local header = CreateFrame("Frame", "WrongCthunPlanner_Header", frame)
+  local header = CreateFrame("Frame", nil, frame)
   header:SetPoint("TOP", frame, "TOP", 0, 12)
   header:SetWidth(256)
   header:SetHeight(64)

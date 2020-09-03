@@ -2,7 +2,7 @@ WCP.UI.ResizeArea = {}
 
 -- Attach Resize Area
 function WCP.UI.ResizeArea.attach_to(frame)
-  resize_frame = CreateFrame("Frame", "CthunResize", frame)
+  local resize_frame = CreateFrame("Frame", nil, frame)
   resize_frame:SetPoint("BottomRight", frame, "BottomRight", -8, 7)
   resize_frame:SetWidth(16)
   resize_frame:SetHeight(16)
@@ -49,7 +49,7 @@ function WCP.UI.ResizeArea.attach_to(frame)
     frame:StopMovingOrSizing()
   end)
 
-  local scrollframe = CreateFrame("ScrollFrame", "CthunScroll", frame)
+  local scrollframe = CreateFrame("ScrollFrame", nil, frame)
   scrollframe:SetWidth(WCP.UI.CthunFrame.Default_Width)
   scrollframe:SetHeight(WCP.UI.CthunFrame.Default_Height)
   scrollframe:SetPoint("Topleft", frame, "Topleft", 0, 0)

@@ -1,7 +1,7 @@
 WCP.UI.HideButton = {}
 
 function WCP.UI.HideButton.attach_to(frame)
-  local button = CreateFrame("Button", "WrongCthunPlanner_Close", frame)
+  local button = CreateFrame("Button", nil, frame)
   button:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -5, -5)
   button:SetHeight(32)
   button:SetWidth(32)

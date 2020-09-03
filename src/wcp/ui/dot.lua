@@ -90,7 +90,7 @@ function WCP.UI.Dot:create_frame()
   local x = positions[self.number][1]
   local y = positions[self.number][2]
 
-  self.button = CreateFrame("Button", "CthunDot_" .. self.number, WCP.frame)
+  self.button = CreateFrame("Button", nil, WCP.frame)
   self.button:SetResizable(true)
   self.button:SetPoint("CENTER", WCP.frame, "CENTER", x, y)
   self.button:EnableMouse(true)
