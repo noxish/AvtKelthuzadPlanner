@@ -35,7 +35,7 @@ end
 
 function WCP.LIB.Grid:populate()
   for raid_index = 1, 40 do
-    local member = WCP.LIB.Member:create(raid_index)
+    local member = WCP.LIB.Member.create(raid_index)
 
     self:add_member(member)
   end
@@ -44,7 +44,7 @@ end
 
 function WCP.LIB.Grid:add_member(member)
   if self.groups[member.subgroup] == nil then
-    self.groups[member.subgroup] = WCP.LIB.Group:create(member.subgroup)
+    self.groups[member.subgroup] = WCP.LIB.Group.create(member.subgroup)
   end
 
   self.groups[member.subgroup]:add_member(member)

@@ -50,7 +50,7 @@ function WCP.UI.Dot.create_or_update(number, ...)
   local dot = WCP.UI.Dot.all[number]
 
   if dot == nil then
-    dot = WCP.UI.Dot:create(number, ...)
+    dot = WCP.UI.Dot.create(number, ...)
     WCP.UI.Dot.all[number] = dot
   else
     dot:update(number, ...)

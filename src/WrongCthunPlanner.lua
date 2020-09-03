@@ -5,7 +5,7 @@ if not successfulRequest then
 end
 
 WCP.frame = WCP.UI.CthunFrame.create()
-WCP.grid = WCP.LIB.Grid:create()
+WCP.grid = WCP.LIB.Grid.create()
 
 SLASH_WrongCthunPlanner1 = "/wcp"
 SlashCmdList.WrongCthunPlanner = WCP.LIB.SlashCommands.handle
