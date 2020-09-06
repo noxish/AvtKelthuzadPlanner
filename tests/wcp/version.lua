@@ -14,9 +14,9 @@ function TestVersion.testPatch()
 end
 
 function TestVersion.testPreRelease()
-  lu.assertEquals(WCP.Version.PRE_RELEASE, "beta")
+  lu.assertEquals(WCP.Version.PRE_RELEASE, nil)
 end
 
 function TestVersion.test_to_string()
-  lu.assertEquals(WCP.Version.to_string(), "0.2.4.beta")
+  lu.assertEquals(WCP.Version.to_string(), "0.2.4")
 end
