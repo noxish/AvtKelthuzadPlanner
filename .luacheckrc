@@ -15,4 +15,5 @@ globals = {
   "UnitIsGroupLeader",
   "UnitName",
   "WCP",
+  "strsplit",
 }

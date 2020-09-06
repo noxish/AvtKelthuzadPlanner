@@ -19,6 +19,8 @@ function WCP.LIB.SlashCommands.handle(cmd)
     private.marks()
   elseif (cmd == "check") then
     private.check()
+  elseif (cmd == "version") then
+    private.version()
   else
     WCP.alert("Command not found, use /wcp help")
   end
@@ -45,6 +47,13 @@ function private.help()
     add_help_message("share", "Displays the planner to your raid")
     add_help_message("check", "Check if all raiders have the addon installed")
   end
+
+  add_help_message("version", "Show current version")
+end
+
+-- /wcp version
+function private.version()
+  WCP.info(WCP.Version.to_string())
 end
 
 -- /wcp show

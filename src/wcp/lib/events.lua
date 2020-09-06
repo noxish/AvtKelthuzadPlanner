@@ -29,12 +29,15 @@ function private.handle_share_event()
 end
 
 function private.handle_check_event(sender)
-  WCP.addon_whisper_message("CHECKRES: " .. WCP.player_name, sender)
+  WCP.addon_whisper_message("CHECKRES: " .. WCP.player_name .. "|" .. WCP.Version.to_string(), sender)
 end
 
 function private.handle_check_result_event(message)
   local _, start = string.find(message, "CHECKRES: ")
-  local name = string.sub(message, start + 1, string.len(message))
+  local name_with_version = string.sub(message, start + 1, string.len(message))
 
-  WCP.LIB.CheckAddon.installed(name)
+  local name, version = strsplit("|", name_with_version)
+  version = version or "< 0.2.4"
+
+  WCP.LIB.CheckAddon.installed(name, version)
 end

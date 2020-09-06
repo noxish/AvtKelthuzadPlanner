@@ -39,3 +39,9 @@ function WCP.dump(object)
     return tostring(object)
   end
 end
+
+-- @note Lua does not have a String#split method implemented,
+--       but WoW does. We just delegate here.
+function WCP.split(...)
+  strsplit(...)
+end
