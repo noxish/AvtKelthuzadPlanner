@@ -14,10 +14,10 @@ function WCP.LIB.CheckAddon.run()
   C_Timer.After(3, private.handle_result)
 end
 
-function WCP.LIB.CheckAddon.installed(name)
+function WCP.LIB.CheckAddon.installed(name, version)
   if WCP.LIB.CheckAddon.current_roster == nil then return false end
 
-  WCP.LIB.CheckAddon.current_roster:remove_member(name)
+  WCP.LIB.CheckAddon.current_roster:handle_installed(name, version)
 end
 
 function WCP.LIB.CheckAddon.Roster.create()
@@ -25,29 +25,41 @@ function WCP.LIB.CheckAddon.Roster.create()
 
   setmetatable(self, WCP.LIB.CheckAddon.Roster)
 
-  self.members = {}
+  self.missing = {}
+  self.installed = {}
 
   for i = 1, 40 do
     local name, _ = GetRaidRosterInfo(i)
 
-    if name then table.insert(self.members, name) end
+    if name then table.insert(self.missing, name) end
   end
 
   return self
 end
 
-function WCP.LIB.CheckAddon.Roster:remove_member(name_to_remove)
-  for i, existing_name in ipairs(self.members) do
-    if existing_name == name_to_remove then
-      table.remove(self.members, i)
+function WCP.LIB.CheckAddon.Roster:handle_installed(name, version)
+  for i, existing_name in pairs(self.missing) do
+    if existing_name == name then
+      table.remove(self.missing, i)
+
+      self.installed[version] = self.installed[version] or {}
+      table.insert(self.installed[version], name)
     end
   end
 end
 
 function private.handle_result()
-  if table.getn(WCP.LIB.CheckAddon.current_roster.members) > 0 then
-    WCP.alert("Missing Addon: " ..  table.concat(WCP.LIB.CheckAddon.current_roster.members, ", "))
-  else
+  local roster = WCP.LIB.CheckAddon.current_roster
+
+  if table.getn(roster.missing) > 0 then
+    WCP.alert("Missing: " ..  table.concat(roster.missing, ", "))
+  end
+
+  for version, installed in pairs(roster.installed) do
+    WCP.info("Installed (" .. version .. "): " ..  table.concat(installed, ", "))
+  end
+
+  if table.getn(roster.missing) <= 0 then
     WCP.info("All players have WCP installed!")
   end
 end

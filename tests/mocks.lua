@@ -6,6 +6,10 @@ function getglobal(name)
   return obj
 end
 
+function strsplit(...)
+  return {}
+end
+
 function UnitName(type)
   return "Deradon"
 end
