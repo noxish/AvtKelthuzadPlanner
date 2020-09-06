@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+mkdir -p .build/
+
+./test && ./lint &&
+  echo "[WCP: Build]" &&
+  WCP_VERSION=$(cat src/WrongCthunPlanner.toc | grep -o "[[:digit:]]\..*") &&
+  mkdir -p .build/ &&
+  rm -rf .build/* &&
+  cp -r src/ .build/WrongCthunPlanner &&
+  cd .build &&
+  zip -r WrongCthunPlanner-$WCP_VERSION.zip WrongCthunPlanner &&
+  rm -rf WrongCthunPlanner &&
+  cp -R WrongCthunPlanner-$WCP_VERSION.zip /mnt/c/Program\ Files\ \(x86\)/World\ of\ Warcraft/_classic_/ &&
+  echo "> Build: ./build/WrongCthunPlanner-$WCP_VERSION.zip"
+
