@@ -1,5 +1,4 @@
 lu = require('luaunit')
-lu = require('luaunit')
 
 require "tests/mocks"
 
@@ -13,6 +12,7 @@ require "src/wcp/lib/grid";
 require "src/wcp/lib/group";
 require "src/wcp/lib/member";
 require "src/wcp/lib/slash_commands";
+require "src/wcp/version";
 
 -- UI
 require "src/wcp/ui/cthun_frame";
@@ -24,5 +24,8 @@ require "src/wcp/ui/resize_area";
 
 -- Init
 require "src/WrongCthunPlanner";
+
+-- Tests
+require "tests/wcp/version";
 
 os.exit(lu.LuaUnit.run())

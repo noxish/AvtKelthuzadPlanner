@@ -33,6 +33,8 @@ Install via Twitch-Client or Download from [Curseforge](https://www.curseforge.c
 
 `/wcp refresh` Refresh positions
 
+`/wcp version` Show current version
+
 * For Raid Leads and Assists
 
 `/wcp marks` Set RaidTargetMarkers for Melees
