@@ -4,20 +4,16 @@ WCP.UI.ResizeArea = {}
 function WCP.UI.ResizeArea.attach_to(frame)
   local resize_frame = CreateFrame("Frame", nil, frame)
   resize_frame:SetPoint("BottomRight", frame, "BottomRight", -8, 7)
-  resize_frame:SetWidth(16)
-  resize_frame:SetHeight(16)
+  resize_frame:SetWidth(32)
+  resize_frame:SetHeight(32)
   resize_frame:SetFrameLevel(frame:GetFrameLevel() + 7)
   resize_frame:EnableMouse(true)
 
   local resizetexture = resize_frame:CreateTexture(nil, "Artwork")
   resizetexture:SetPoint("TopLeft", resize_frame, "TopLeft", 0, 0)
-  resizetexture:SetWidth(16)
-  resizetexture:SetHeight(16)
+  resizetexture:SetWidth(32)
+  resizetexture:SetHeight(32)
   resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
-
-  frame:SetMaxResize(WCP.UI.CthunFrame.Default_Width * 1.5, WCP.UI.CthunFrame.Default_Height * 1.5)
-  frame:SetMinResize(WCP.UI.CthunFrame.Default_Width / 2.0, WCP.UI.CthunFrame.Default_Height / 2.0)
-  frame:SetResizable(true)
 
   resize_frame:SetScript("OnEnter", function()
     resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Highlight")
@@ -27,7 +23,7 @@ function WCP.UI.ResizeArea.attach_to(frame)
     resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
   end)
 
-  resize_frame:SetScript("OnMouseDown", function(button)
+  resize_frame:SetScript("OnMouseDown", function(_, button)
     if button == "RightButton" then
       frame:SetWidth(WCP.UI.CthunFrame.Default_Width)
       frame:SetHeight(WCP.UI.CthunFrame.Default_Height)
@@ -55,8 +51,8 @@ function WCP.UI.ResizeArea.attach_to(frame)
   scrollframe:SetPoint("Topleft", frame, "Topleft", 0, 0)
 
   frame:SetScript("OnSizeChanged", function()
-    WCP.UI.CthunFrame.Resize()
+    WCP.frame:resize()
   end)
 
-  frame.resize_area = resize_frame
+  return resize_frame
 end

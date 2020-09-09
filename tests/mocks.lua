@@ -6,14 +6,20 @@ function getglobal(name)
   return obj
 end
 
-function strsplit(...)
-  return {}
-end
+function strsplit(...) return {} end
+function hooksecurefunc() return {} end
 
-function UnitName(type)
-  return "Deradon"
-end
+function GetRaidRosterInfo() return {} end
+function GetTime() return {} end
+function UnitName(type) return "Deradon" end
 
+function LibStub()
+  local stub = {}
+
+  function stub.NewAddon() return {} end
+
+  return stub
+end
 
 function CreateFrame(type)
   texture = {}
@@ -22,6 +28,7 @@ function CreateFrame(type)
   function texture.SetHeight() return false end
   function texture.SetTexture() return false end
   function texture.SetText() return false end
+  function texture.SetTexCoord() return false end
 
   frame = {
     Low = texture,

@@ -34,11 +34,20 @@ function WCP.LIB.Grid:refresh()
 end
 
 function WCP.LIB.Grid:populate()
+  if not self.populated then
+    WCP.submit_event({ type = "REQUEST_SHARE" })
+  end
+
   for raid_index = 1, 40 do
     local member = WCP.LIB.Member.create(raid_index)
 
+    if(member.name == WCP.player_name) then
+      WCP.player = member
+    end
+
     self:add_member(member)
   end
+
   self.populated = true
 end
 

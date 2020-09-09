@@ -7,16 +7,14 @@ function WCP.LIB.Member.create(raid_index)
 
   setmetatable(self, WCP.LIB.Member)
 
-  local name, _, subgroup, _, _, class, _, online, isDead, role, _ = GetRaidRosterInfo(raid_index)
+  local name, rank, subgroup, _, _, class, _, online, isDead, role, _ = GetRaidRosterInfo(raid_index)
 
   self.class = class
   self.isDead = isDead
   self.name = name
   self.online = online
-
-  -- @todo Check for I18n issues
+  self.rank = rank
   self.role = role
-
   self.subgroup = subgroup
 
   return self
@@ -26,9 +24,13 @@ function WCP.LIB.Member:is_available()
   return (self.isDead == false and self.online == true)
 end
 
+function WCP.LIB.Member:is_leader()
+  return (self.rank == 2)
+end
+
 -- @note Any target set as MainTank via RaidFrames is considered to be a melee.
 function WCP.LIB.Member:is_melee()
-  if(self.role == "maintank") then return true end
+  if(self.role == "MAINTANK") then return true end
 
   return (self.class == "ROGUE" or self.class == "WARRIOR")
 end

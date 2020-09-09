@@ -1,6 +1,5 @@
-WCP = {}
+WCP = LibStub("AceAddon-3.0"):NewAddon("WCP", "AceComm-3.0", "AceSerializer-3.0")
 WCP.LIB = {}
-WCP.UI = {}
 
 WCP.messagePrefix = "WCP"
 WCP.frame = {}
@@ -14,12 +13,20 @@ function WCP.alert(message)
   DEFAULT_CHAT_FRAME:AddMessage("|cFFFF0000WCP:|r " .. message, 1.0, 1.0, 0)
 end
 
-function WCP.addon_raid_message(message)
-  C_ChatInfo.SendAddonMessage(WCP.messagePrefix, message, "RAID")
+function WCP.submit_event(event, target)
+  if(target) then
+    WCP.addon_whisper_message(WCP:Serialize(event), target)
+  else
+    WCP.addon_raid_message(WCP:Serialize(event))
+  end
 end
 
-function WCP.addon_whisper_message(message, receiver)
-  C_ChatInfo.SendAddonMessage(WCP.messagePrefix, message, "WHISPER", receiver)
+function WCP.addon_raid_message(message)
+  WCP:SendCommMessage(WCP.messagePrefix, message, "RAID")
+end
+
+function WCP.addon_whisper_message(message, target)
+  WCP:SendCommMessage(WCP.messagePrefix, message, "WHISPER", target)
 end
 
 function WCP.debug(object)

@@ -58,17 +58,17 @@ end
 
 -- /wcp show
 function private.show()
-  WCP.UI.CthunFrame.show()
+  WCP.frame:show()
 end
 
 -- /wcp hide
 function private.hide()
-  WCP.frame:Hide()
+  WCP.frame:hide()
 end
 
 -- /wcp reset
 function private.reset()
-  WCP.UI.CthunFrame.reset()
+  WCP.frame:reset()
 end
 
 -- /wcp refresh
@@ -80,10 +80,10 @@ end
 function private.share()
   if IsInGroup() then
     if UnitIsGroupLeader("player") then
-      WCP.UI.CthunFrame.show()
+      WCP.frame:show()
 
-      WCP.grid:refresh()
-      WCP.addon_raid_message("SHARE")
+      WCP.submit_event({ type = "SHARE" })
+      WCP.UI.Dot.share_positions()
     else
       WCP.alert("Only the group leader can share.")
     end

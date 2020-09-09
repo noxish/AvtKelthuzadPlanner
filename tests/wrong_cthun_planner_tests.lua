@@ -15,7 +15,9 @@ require "src/wcp/lib/slash_commands";
 require "src/wcp/version";
 
 -- UI
+require "src/wcp/ui";
 require "src/wcp/ui/cthun_frame";
+require "src/wcp/ui/cursor";
 require "src/wcp/ui/dot";
 require "src/wcp/ui/header";
 require "src/wcp/ui/hide_button";

@@ -6,8 +6,12 @@ globals = {
   "GameTooltip",
   "GetCursorPosition",
   "GetRaidRosterInfo",
+  "IsAltKeyDown",
   "IsInGroup",
+  "IsShiftKeyDown",
+  "LibStub",
   "SLASH_WrongCthunPlanner1",
+  "SetCursor",
   "SetRaidTarget",
   "SlashCmdList",
   "UIParent",
@@ -15,5 +19,10 @@ globals = {
   "UnitIsGroupLeader",
   "UnitName",
   "WCP",
+  "WCP_POSITIONS",
   "strsplit",
+}
+
+exclude_files = {
+  "src/Libs/*"
 }
