@@ -1,9 +1,9 @@
 WCP.Version = {}
 
 WCP.Version.MAJOR = 0
-WCP.Version.MINOR = 2
-WCP.Version.PATCH = 4
-WCP.Version.PRE_RELEASE = nil
+WCP.Version.MINOR = 3
+WCP.Version.PATCH = 0
+WCP.Version.PRE_RELEASE = "alpha"
 
 function WCP.Version.to_string()
   local version = (

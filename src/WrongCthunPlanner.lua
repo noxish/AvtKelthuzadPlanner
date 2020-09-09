@@ -19,6 +19,6 @@ function WCP.OnCommReceived(prefix, message, distribution, sender)
   if is_event then
     WCP.LIB.Events["ON_" .. event["type"]](event["payload"], prefix, message, distribution, sender)
   else
-    WCP.warn("Can not process: " .. message)
+    WCP.alert("Can not process: " .. message)
   end
 end
