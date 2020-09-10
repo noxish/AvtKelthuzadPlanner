@@ -1,4 +1,8 @@
-## UNRELEASED [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.2.4...master) (UNRELEASED)
+## UNRELEASED [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.0...master) (UNRELEASED)
+
+** nothing yet
+
+## 0.3.0 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.2.4...v0.3.0) (2020-09-10)
 
 * nothing yet
 
@@ -6,8 +10,14 @@
 
 ### Features
 
-* Add version command: `/wcp version`
-* `/wcp check` shows installed versions
+* Make dots draggable and swappable (RLs and Assists)
+* Use class icons for Dots
+* Show different icons if player is dead or offline
+
+## Enhancements
+
+* Adds Ace3 library (e.g. for messaging)
+* Adds build script
 
 ## 0.2.3 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.1.1...v0.2.3) (2020-09-02)
 
