@@ -1,12 +1,15 @@
 # WrongCthunPlanner
 
-This is a WoW-Classic addon that will provide help for positioning during the C'Thun encounter.
+This is a WoW-Classic addon that will provide help for positioning during the C'Thun encounter.\
 It's a fork of [PHGP Cthun](https://www.curseforge.com/wow/addons/phgp-cthun) and [Salad_Cthun](https://www.curseforge.com/wow/addons/salad_cthun)
 
 ## Why?
 
-The versions forked of does not support WoW-Classic clients other than the english version.
+The versions forked of does not support WoW-Classic clients other than the english version.\
 *WrongCthunPlanner* works for all WoW-Classic clients.
+
+You can **drag** and **resize** the screen.\
+You can also **reposition players**.
 
 ## Installation
 
@@ -39,11 +42,11 @@ Install via Twitch-Client or Download from [Curseforge](https://www.curseforge.c
 
 `/wcp marks` Set RaidTargetMarkers for Melees
 
+`/wcp check` Check if all raiders have the addon installed
+
 * For Raid Leads
 
 `/wcp share` Displays the planner to your raid
-
-`/wcp check` Check if all raiders have the addon installed
 
 ### Macro (For RL/Assist)
 
