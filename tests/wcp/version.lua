@@ -10,7 +10,7 @@ end
 
 
 function TestVersion.testPatch()
-  lu.assertEquals(WCP.Version.PATCH, 0)
+  lu.assertEquals(WCP.Version.PATCH, 1)
 end
 
 function TestVersion.testPreRelease()
@@ -18,5 +18,5 @@ function TestVersion.testPreRelease()
 end
 
 function TestVersion.test_to_string()
-  lu.assertEquals(WCP.Version.to_string(), "0.3.0")
+  lu.assertEquals(WCP.Version.to_string(), "0.3.1")
 end

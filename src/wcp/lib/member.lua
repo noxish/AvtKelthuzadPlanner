@@ -28,6 +28,10 @@ function WCP.LIB.Member:is_leader()
   return (self.rank == 2)
 end
 
+function WCP.LIB.Member:is_assist()
+  return (self.rank == 1)
+end
+
 -- @note Any target set as MainTank via RaidFrames is considered to be a melee.
 function WCP.LIB.Member:is_melee()
   if(self.role == "MAINTANK") then return true end

@@ -1,6 +1,12 @@
-## UNRELEASED [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.0...master) (UNRELEASED)
+## 0.3.1 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.1...master) (2020-09-19)
 
 ** nothing yet
+
+## 0.3.1 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.0...v0.3.1) (2020-09-19)
+
+### Bugs
+
+* Fix missing `is_assist()`
 
 ## 0.3.0 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.2.4...v0.3.0) (2020-09-10)
 
