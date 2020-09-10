@@ -4,10 +4,6 @@
 
 ## 0.3.0 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.2.4...v0.3.0) (2020-09-10)
 
-* nothing yet
-
-## 0.2.4 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.2.3...v0.2.4) (2020-09-07)
-
 ### Features
 
 * Make dots draggable and swappable (RLs and Assists)
@@ -18,6 +14,13 @@
 
 * Adds Ace3 library (e.g. for messaging)
 * Adds build script
+
+## 0.2.4 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.2.3...v0.2.4) (2020-09-07)
+
+### Features
+
+* Add version command: `/wcp version`
+* `/wcp check` shows installed versions
 
 ## 0.2.3 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.1.1...v0.2.3) (2020-09-02)
 
