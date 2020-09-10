@@ -50,11 +50,11 @@ local default_positions = {
 local current_layout = "default"
 
 function WCP.UI.Dot.init()
-  WCP_POSITIONS = WCP_POSITIONS or { default = default_positions }
+  WCP_POSITIONS = WCP_POSITIONS or { default = WCP.copy_table(default_positions) }
 end
 
 function WCP.UI.Dot.reset_positions()
-  WCP_POSITIONS = { default = default_positions }
+  WCP_POSITIONS = { default = WCP.copy_table(default_positions) }
   WCP.UI.Dot.share_positions()
 end
 

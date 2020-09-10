@@ -52,3 +52,19 @@ end
 function WCP.split(...)
   strsplit(...)
 end
+
+-- @see http://lua-users.org/wiki/CopyTable
+function WCP.copy_table(orig)
+  local orig_type = type(orig)
+  local copy = {}
+
+  if orig_type == 'table' then
+    for orig_key, orig_value in pairs(orig) do
+      copy[WCP.copy_table(orig_key)] = WCP.copy_table(orig_value)
+    end
+    setmetatable(copy, WCP.copy_table(getmetatable(orig)))
+  else -- number, string, boolean, etc
+    copy = orig
+  end
+  return copy
+end
