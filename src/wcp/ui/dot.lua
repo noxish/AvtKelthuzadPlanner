@@ -70,14 +70,14 @@ function WCP.UI.Dot.set_positions(new_positions)
   end
 end
 
-function WCP.UI.Dot.create_or_update(number, ...)
+function WCP.UI.Dot.create_or_update(number, member)
   local dot = WCP.UI.Dot.all[number]
 
   if dot == nil then
-    dot = WCP.UI.Dot.create(number, ...)
+    dot = WCP.UI.Dot.create(number, member)
     WCP.UI.Dot.all[number] = dot
   else
-    dot:update(number, ...)
+    dot:update(number, member)
   end
 
   dot:refresh()
@@ -91,21 +91,22 @@ function WCP.UI.Dot.reset_all()
 end
 
 -- Initializer
-function WCP.UI.Dot.create(...)
+function WCP.UI.Dot.create(number, member)
   local self = {}
 
   setmetatable(self, WCP.UI.Dot)
 
-  self:update(...)
+  self:update(number, member)
   self:create_frame(WCP.frame.frame)
 
   return self
 end
 
-function WCP.UI.Dot:update(number, name, class)
+function WCP.UI.Dot:update(number, member)
   self.number = number
-  self.name = name
-  self.class = class
+  self.member = member
+  self.name = member and member.name
+  self.class = member and member.class
 
   if self.name == nil then self.name = "Empty" end
 end
@@ -192,8 +193,12 @@ function WCP.UI.Dot:refresh()
 end
 
 function WCP.UI.Dot:update_texture()
-  if (self.class == nil) then
+  if (self.member == nil) then
     self.button.texture:SetTexture("Interface/Buttons/UI-EmptySlot")
+  elseif (not self.member.online) then
+    self.button.texture:SetTexture("Interface/ICONS/Ability_Stealth")
+  elseif (self.member.isDead) then
+    self.button.texture:SetTexture("Interface/ICONS/INV_Misc_QuestionMark")
   else
     local capitalized_class = self.class:gsub("^%l", string.upper)
     self.button.texture:SetTexture("Interface/ICONS/ClassIcon_" .. capitalized_class)

@@ -63,7 +63,7 @@ function WCP.LIB.Grid:draw()
   for group_index, group in pairs(self.groups) do
     for member_index, member in pairs(group.members) do
       local position_index = ((group_index - 1) * 5) + member_index
-      WCP.UI.Dot.create_or_update(position_index, member.name, member.class)
+      WCP.UI.Dot.create_or_update(position_index, member)
     end
   end
 end

@@ -21,7 +21,7 @@ function WCP.LIB.Member.create(raid_index)
 end
 
 function WCP.LIB.Member:is_available()
-  return (self.isDead == false and self.online == true)
+  return (self.name ~= nil)
 end
 
 function WCP.LIB.Member:is_leader()
