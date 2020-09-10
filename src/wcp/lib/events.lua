@@ -1,43 +1,47 @@
 WCP.LIB.Events = {}
 
-local private = {}
+function WCP.LIB.Events.ON_GROUP_JOINED()
+  WCP.submit_event({ type = "REQUEST_SHARE" })
+end
 
--- Handle WoW Events
-function WCP.LIB.Events.handle(...)
-  local _, event_type = ...
+function WCP.LIB.Events.ON_GROUP_ROSTER_UPDATE()
+  WCP.grid:refresh()
+end
 
-  if(event_type == "CHAT_MSG_ADDON") then
-    private.handle_chat_message_addon_event(...)
-  elseif(event_type == "GROUP_ROSTER_UPDATE") then
-    WCP.grid:refresh()
+function WCP.LIB.Events.ON_REQUEST_SHARE()
+  if(WCP.player:is_leader()) then
+    WCP.UI.Dot.share_positions()
   end
 end
 
-function private.handle_chat_message_addon_event(...)
-  local _, _, prefix, message, _, sender = ...
-
-  if prefix ~= WCP.messagePrefix then return false end
-
-  if message == "SHARE" then private.handle_share_event() end
-  if message == "CHECK" then private.handle_check_event(sender) end
-  if string.find(message, "CHECKRES: ") then private.handle_check_result_event(message) end
+function WCP.LIB.Events.ON_SHARE()
+  WCP.frame:show()
 end
 
-function private.handle_share_event()
-  WCP.info("Accepting share..")
-  WCP.UI.CthunFrame.show()
+function WCP.LIB.Events.ON_SHARE_POSITIONS(payload)
+  WCP.UI.Dot.set_positions(payload)
 end
 
-function private.handle_check_event(sender)
-  WCP.addon_whisper_message("CHECKRES: " .. WCP.player_name .. "|" .. WCP.Version.to_string(), sender)
+function WCP.LIB.Events.ON_VERSION_CHECK(_, _, _, _, target)
+  WCP.submit_event({
+    type = "VERSION_RESPONSE",
+    payload = {
+      name = WCP.player_name,
+      version = WCP.Version.to_string()
+    }
+  }, target)
 end
 
-function private.handle_check_result_event(message)
-  local _, start = string.find(message, "CHECKRES: ")
-  local name_with_version = string.sub(message, start + 1, string.len(message))
+function WCP.LIB.Events.ON_VERSION_RESPONSE(payload)
+  WCP.LIB.CheckAddon.installed(payload["name"], payload["version"])
+end
 
-  local name, version = strsplit("|", name_with_version)
-  version = version or "< 0.2.4"
+-- Generic event handler delegates to correct handler
+-- @todo Replace w/ AceEvent
+function WCP.LIB.Events.handle(...)
+  local _, event_type = ...
 
-  WCP.LIB.CheckAddon.installed(name, version)
+  if(not event_type) then return false end
+
+  WCP.LIB.Events["ON_" .. event_type]()
 end

@@ -41,11 +41,11 @@ function private.help()
 
   if(IsInGroup() and (UnitIsGroupLeader("player") or UnitIsGroupAssistant("player"))) then
     add_help_message("marks", "Set RaidTargetMarkers for Melees")
+    add_help_message("check", "Check if all raiders have the addon installed")
   end
 
   if(IsInGroup() and UnitIsGroupLeader("player")) then
     add_help_message("share", "Displays the planner to your raid")
-    add_help_message("check", "Check if all raiders have the addon installed")
   end
 
   add_help_message("version", "Show current version")
@@ -58,17 +58,17 @@ end
 
 -- /wcp show
 function private.show()
-  WCP.UI.CthunFrame.show()
+  WCP.frame:show()
 end
 
 -- /wcp hide
 function private.hide()
-  WCP.frame:Hide()
+  WCP.frame:hide()
 end
 
 -- /wcp reset
 function private.reset()
-  WCP.UI.CthunFrame.reset()
+  WCP.frame:reset()
 end
 
 -- /wcp refresh
@@ -80,10 +80,10 @@ end
 function private.share()
   if IsInGroup() then
     if UnitIsGroupLeader("player") then
-      WCP.UI.CthunFrame.show()
+      WCP.frame:show()
 
-      WCP.grid:refresh()
-      WCP.addon_raid_message("SHARE")
+      WCP.submit_event({ type = "SHARE" })
+      WCP.UI.Dot.share_positions()
     else
       WCP.alert("Only the group leader can share.")
     end
@@ -99,7 +99,7 @@ end
 
 -- /wcp check
 function private.check()
-  if IsInGroup() and UnitIsGroupLeader("player") then
+  if IsInGroup() and (UnitIsGroupLeader("player") or UnitIsGroupAssistant("player")) then
     WCP.LIB.CheckAddon.run()
   else
     WCP.alert("This is only available to group leaders.")

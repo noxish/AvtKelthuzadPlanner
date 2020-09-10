@@ -9,7 +9,8 @@ local private = {}
 function WCP.LIB.CheckAddon.run()
   WCP.LIB.CheckAddon.current_roster = WCP.LIB.CheckAddon.Roster.create()
 
-  WCP.addon_raid_message("CHECK")
+  WCP.submit_event({ type = "VERSION_CHECK" })
+
   WCP.info("checking if everyone has the addon installed")
   C_Timer.After(3, private.handle_result)
 end

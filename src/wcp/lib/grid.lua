@@ -34,11 +34,20 @@ function WCP.LIB.Grid:refresh()
 end
 
 function WCP.LIB.Grid:populate()
+  if not self.populated then
+    WCP.submit_event({ type = "REQUEST_SHARE" })
+  end
+
   for raid_index = 1, 40 do
     local member = WCP.LIB.Member.create(raid_index)
 
+    if(member.name == WCP.player_name) then
+      WCP.player = member
+    end
+
     self:add_member(member)
   end
+
   self.populated = true
 end
 
@@ -54,7 +63,7 @@ function WCP.LIB.Grid:draw()
   for group_index, group in pairs(self.groups) do
     for member_index, member in pairs(group.members) do
       local position_index = ((group_index - 1) * 5) + member_index
-      WCP.UI.Dot.create_or_update(position_index, member.name, member.class)
+      WCP.UI.Dot.create_or_update(position_index, member)
     end
   end
 end
