@@ -41,11 +41,11 @@ function private.help()
 
   if(IsInGroup() and (UnitIsGroupLeader("player") or UnitIsGroupAssistant("player"))) then
     add_help_message("marks", "Set RaidTargetMarkers for Melees")
+    add_help_message("check", "Check if all raiders have the addon installed")
   end
 
   if(IsInGroup() and UnitIsGroupLeader("player")) then
     add_help_message("share", "Displays the planner to your raid")
-    add_help_message("check", "Check if all raiders have the addon installed")
   end
 
   add_help_message("version", "Show current version")
@@ -99,7 +99,7 @@ end
 
 -- /wcp check
 function private.check()
-  if IsInGroup() and UnitIsGroupLeader("player") then
+  if IsInGroup() and (UnitIsGroupLeader("player") or UnitIsGroupAssistant("player")) then
     WCP.LIB.CheckAddon.run()
   else
     WCP.alert("This is only available to group leaders.")

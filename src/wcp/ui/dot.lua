@@ -112,7 +112,7 @@ function WCP.UI.Dot:update(number, member)
 end
 
 function WCP.UI.Dot.can_interact()
-  return WCP.player:is_leader()
+  return (WCP.player:is_leader() or WCP.player:is_assist())
 end
 
 function WCP.UI.Dot:create_frame(parent)
