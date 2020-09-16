@@ -1,8 +1,8 @@
 WCP.UI.Header = {}
 
-function WCP.UI.Header.attach_to(frame)
-  local header = CreateFrame("Frame", nil, frame)
-  header:SetPoint("TOP", frame, "TOP", 0, 12)
+function WCP.UI.Header.attach_to(parent)
+  local header = CreateFrame("Frame", nil, parent)
+  header:SetPoint("TOP", parent, "TOP", 0, 12)
   header:SetWidth(256)
   header:SetHeight(64)
   header:SetBackdrop({
@@ -10,12 +10,12 @@ function WCP.UI.Header.attach_to(frame)
   })
 
   header:SetScript("OnMouseDown", function()
-    frame:StartMoving("TOPLEFT")
-    frame:SetUserPlaced(true)
+    parent:StartMoving("TOPLEFT")
+    parent:SetUserPlaced(true)
   end)
 
   header:SetScript("OnMouseUp", function()
-    frame:StopMovingOrSizing()
+    parent:StopMovingOrSizing()
   end)
 
   local title = header:CreateFontString(nil, "OVERLAY", "GameFontHighlight")

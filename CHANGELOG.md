@@ -1,4 +1,4 @@
-## 0.3.1 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.1...master) (2020-09-19)
+## UNRELEASED [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.1...master) (UNRELEASED)
 
 ** nothing yet
 

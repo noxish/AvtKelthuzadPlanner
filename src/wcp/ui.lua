@@ -1,6 +1,6 @@
 WCP.UI = {}
 
--- @param frame    Frame to append the new texture to
+-- @param parent    Frame to append the new texture to
 -- @param path     File path of the texture file
 -- @param position One of: "TopLeft", "TopRight", "BottomLeft", "BottomRight"
 -- @param width
@@ -11,7 +11,7 @@ WCP.UI = {}
 -- @param right    (optional) Region of texture: right (Default: 1.0)
 -- @param top      (optional) Region of texture: top (Default: 0.0)
 -- @param bottom   (optional) Region of texture: bottom (Default: 1.0)
-function WCP.UI.append_partial_texture(frame, path, position, width, height, ox, oy, left, right, top, bottom)
+function WCP.UI.append_partial_texture(parent, path, position, width, height, ox, oy, left, right, top, bottom)
   ox = ox or 1.0
   oy = oy or 1.0
   left = left or 0.0
@@ -19,10 +19,10 @@ function WCP.UI.append_partial_texture(frame, path, position, width, height, ox,
   top = top or 0.0
   bottom = bottom or 1.0
 
-  local texture = frame:CreateTexture()
+  local texture = parent:CreateTexture()
 
   texture:SetTexture(path)
-  texture:SetPoint(position, frame, position, ox, oy)
+  texture:SetPoint(position, parent, position, ox, oy)
   texture:SetWidth(width)
   texture:SetHeight(height)
   texture:SetTexCoord(left, right, top, bottom)

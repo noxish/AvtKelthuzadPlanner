@@ -1,12 +1,12 @@
 WCP.UI.ResizeArea = {}
 
 -- Attach Resize Area
-function WCP.UI.ResizeArea.attach_to(frame)
-  local resize_frame = CreateFrame("Frame", nil, frame)
-  resize_frame:SetPoint("BottomRight", frame, "BottomRight", -8, 7)
+function WCP.UI.ResizeArea.attach_to(parent)
+  local resize_frame = CreateFrame("Frame", nil, parent)
+  resize_frame:SetPoint("BottomRight", parent, "BottomRight", -8, 7)
   resize_frame:SetWidth(32)
   resize_frame:SetHeight(32)
-  resize_frame:SetFrameLevel(frame:GetFrameLevel() + 7)
+  resize_frame:SetFrameLevel(parent:GetFrameLevel() + 7)
   resize_frame:EnableMouse(true)
 
   local resizetexture = resize_frame:CreateTexture(nil, "Artwork")
@@ -25,11 +25,11 @@ function WCP.UI.ResizeArea.attach_to(frame)
 
   resize_frame:SetScript("OnMouseDown", function(_, button)
     if button == "RightButton" then
-      frame:SetWidth(WCP.UI.CthunFrame.Default_Width)
-      frame:SetHeight(WCP.UI.CthunFrame.Default_Height)
+      parent:SetWidth(WCP.UI.CthunFrame.Default_Width)
+      parent:SetHeight(WCP.UI.CthunFrame.Default_Height)
     else
       resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Down")
-      frame:StartSizing("Right")
+      parent:StartSizing("Right")
     end
   end)
 
@@ -42,15 +42,15 @@ function WCP.UI.ResizeArea.attach_to(frame)
     else
       resizetexture:SetTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
     end
-    frame:StopMovingOrSizing()
+    parent:StopMovingOrSizing()
   end)
 
-  local scrollframe = CreateFrame("ScrollFrame", nil, frame)
+  local scrollframe = CreateFrame("ScrollFrame", nil, parent)
   scrollframe:SetWidth(WCP.UI.CthunFrame.Default_Width)
   scrollframe:SetHeight(WCP.UI.CthunFrame.Default_Height)
-  scrollframe:SetPoint("Topleft", frame, "Topleft", 0, 0)
+  scrollframe:SetPoint("Topleft", parent, "Topleft", 0, 0)
 
-  frame:SetScript("OnSizeChanged", function()
+  parent:SetScript("OnSizeChanged", function()
     WCP.frame:resize()
   end)
 

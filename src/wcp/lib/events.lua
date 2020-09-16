@@ -1,5 +1,15 @@
 WCP.LIB.Events = {}
 
+-- Generic event handler delegates to correct handler
+-- @todo Replace w/ AceEvent
+function WCP.LIB.Events.handle(...)
+  local _, event_type = ...
+
+  if(not event_type) then return false end
+
+  WCP.LIB.Events["ON_" .. event_type]()
+end
+
 function WCP.LIB.Events.ON_GROUP_JOINED()
   WCP.submit_event({ type = "REQUEST_SHARE" })
 end
@@ -36,12 +46,3 @@ function WCP.LIB.Events.ON_VERSION_RESPONSE(payload)
   WCP.LIB.CheckAddon.installed(payload["name"], payload["version"])
 end
 
--- Generic event handler delegates to correct handler
--- @todo Replace w/ AceEvent
-function WCP.LIB.Events.handle(...)
-  local _, event_type = ...
-
-  if(not event_type) then return false end
-
-  WCP.LIB.Events["ON_" .. event_type]()
-end

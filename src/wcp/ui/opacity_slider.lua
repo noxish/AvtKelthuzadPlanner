@@ -1,8 +1,8 @@
 WCP.UI.OpacitySlider = {}
 
-function WCP.UI.OpacitySlider.attach_to(frame)
-  local slider = CreateFrame("Slider", nil, frame, "OptionsSliderTemplate")
-  slider:SetPoint("BottomLeft", frame, "BottomLeft", 20, 20)
+function WCP.UI.OpacitySlider.attach_to(parent)
+  local slider = CreateFrame("Slider", nil, parent, "OptionsSliderTemplate")
+  slider:SetPoint("BottomLeft", parent, "BottomLeft", 20, 20)
   slider:SetMinMaxValues(0.05, 1.00)
   slider:SetValue(1.00)
   slider:SetValueStep(0.05)
@@ -14,6 +14,6 @@ function WCP.UI.OpacitySlider.attach_to(frame)
 
   slider:SetScript("OnValueChanged", function()
     local value = slider:GetValue()
-    frame:SetAlpha(value)
+    parent:SetAlpha(value)
   end)
 end
