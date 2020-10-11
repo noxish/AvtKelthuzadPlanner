@@ -1,6 +1,8 @@
-## UNRELEASED [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.1...master) (UNRELEASED)
+## 0.3.3 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.3...v0.3.1) (2020-10-12)
 
-** nothing yet
+### Enhancements
+
+* Mute some debug/warning messages
 
 ## 0.3.1 [☰](https://github.com/Deradon/WrongCthunPlanner/compare/v0.3.0...v0.3.1) (2020-09-19)
 
@@ -16,7 +18,7 @@
 * Use class icons for Dots
 * Show different icons if player is dead or offline
 
-## Enhancements
+### Enhancements
 
 * Adds Ace3 library (e.g. for messaging)
 * Adds build script

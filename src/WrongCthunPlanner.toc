@@ -1,7 +1,7 @@
 ## Interface: 11305
 ## Title: WrongCthunPlanner
 ## Author: Patrick Helm
-## Version: 0.3.2
+## Version: 0.3.3
 ## Notes: C'Thun Positioning Planner
 ## SavedVariables: WCP_POSITIONS
 
