@@ -1,12 +1,12 @@
-# WrongCthunPlanner
+# Avt Kelthuzad Planner
 
-This is a WoW-Classic addon that will provide help for positioning during the C'Thun encounter.\
-It's a fork of [PHGP Cthun](https://www.curseforge.com/wow/addons/phgp-cthun) and [Salad_Cthun](https://www.curseforge.com/wow/addons/salad_cthun)
+This is a WoW-Classic addon that will provide help for positioning during the Kel'Thuzad encounter.\
+It's a fork of [PHGP Cthun](https://www.curseforge.com/wow/addons/phgp-cthun) and [Salad_Cthun](https://www.curseforge.com/wow/addons/salad_cthun) and [Wrong Cthun Planner](https://www.curseforge.com/wow/addons/wrong-cthun-planner)
 
 ## Why?
 
 The versions forked of does not support WoW-Classic clients other than the english version.\
-*WrongCthunPlanner* works for all WoW-Classic clients.
+*WrongCthunPlanner* works for all WoW-Classic clients. #Thanks to Deradon for the Localized Version
 
 You can **drag** and **resize** the screen.\
 You can also **reposition players**.
@@ -17,11 +17,12 @@ You can also **reposition players**.
 
 * Download/Clone this repo.
 * Copy the `src` directory into your WoW-Classic-Addons directory.
-* Rename it to `WrongCthunPlanner`
+* Rename it to `AvtKelthuzadPlanner`
 
 ### Twitch/Curse
 
-Install via Twitch-Client or Download from [Curseforge](https://www.curseforge.com/wow/addons/wrong-cthun-planner).
+no release yet!
+~~Install via Twitch-Client or Download from [Curseforge](https://www.curseforge.com/wow/addons/wrong-cthun-planner).~~
 
 
 ## Usage
