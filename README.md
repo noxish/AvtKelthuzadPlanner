@@ -1,7 +1,7 @@
 # Avt Kelthuzad Planner
 
 This is a WoW-Classic addon that will provide help for positioning during the Kel'Thuzad encounter.\
-It's a fork of [PHGP Cthun](https://www.curseforge.com/wow/addons/phgp-cthun) and [Salad_Cthun](https://www.curseforge.com/wow/addons/salad_cthun) and [Wrong Cthun Planner](https://www.curseforge.com/wow/addons/wrong-cthun-planner)
+It's a fork of [Wrong Cthun Planner](https://www.curseforge.com/wow/addons/wrong-cthun-planner)
 
 ## Why?
 
